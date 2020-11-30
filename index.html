@@ -47,19 +47,15 @@ String.prototype.code2 = function() {
 String.prototype.code3 = function() {
 	return atob("S2IzUUc3UC5qcGc=");
 };
-</script><tw-passagedata pid="1" name="Start" tags="" position="525,200" size="100,100">(set: $host to &quot;https://i.imgur.com/&quot;)
+</script><tw-passagedata pid="1" name="Start" tags="" position="525,200" size="100,100">Welcome to our play mansion!
+(display: &quot;s1&quot;)
+&lt;img src=&quot;https://cdn.pixabay.com/photo/2017/07/03/21/35/house-2469067_960_720.jpg&quot;&gt;
+[[Let&#39;s go inside|Main Foyer]]
+(set: $host to &quot;https://i.imgur.com/&quot;)
 (set: $found_instructions to 0)
 (set: $beer to 0)
 (set: $remote to 0)
-(set: $blanket to 0)
-Welcome to our play mansion!
-&lt;style&gt; img {
-  max-width:100%;
-  max-height:100%;
-}
-&lt;/style&gt;
-&lt;img src=&quot;https://cdn.pixabay.com/photo/2017/07/03/21/35/house-2469067_960_720.jpg&quot;&gt;
-[[Let&#39;s go inside|Main Foyer]]</tw-passagedata><tw-passagedata pid="2" name="Main Foyer" tags="" position="525,350" size="100,100">&lt;style&gt; img {
+(set: $blanket to 0)</tw-passagedata><tw-passagedata pid="2" name="Main Foyer" tags="" position="525,350" size="100,100">&lt;style&gt; img {
   max-width:100%;
   max-height:100%;
 }
@@ -146,7 +142,8 @@ Just a bunch of music notes...
 
 You entered password &quot;(print: $pw)&quot;
 
-[[Open safe|OpenSafe2]]</tw-passagedata><tw-passagedata pid="12" name="OpenSafe1" tags="" position="650,950" size="100,100">(if: $pw.hashCode() is -1366299605)[You&#39;ve opened the safe!
+[[Open safe|OpenSafe2]]
+[[Get out|Go upstairs]]</tw-passagedata><tw-passagedata pid="12" name="OpenSafe1" tags="" position="650,950" size="100,100">(if: $pw.hashCode() is -1366299605)[You&#39;ve opened the safe!
 There is a camera and some photos.
 One particular photo looks interesting.
 (display: &quot;s1&quot;)
@@ -169,8 +166,9 @@ One particular photo looks interesting.
 
 You entered password &quot;(print: $pw)&quot;
 
-[[Open safe|OpenSafe1]]</tw-passagedata><tw-passagedata pid="16" name="OpenSafe2" tags="" position="400,950" size="100,100">(if: $pw.hashCode() is 28122)[You&#39;ve opened the safe!
-Bunch of old books, but there is also a torn out page.
+[[Open safe|OpenSafe1]]
+[[Get out|Go upstairs]]</tw-passagedata><tw-passagedata pid="16" name="OpenSafe2" tags="" position="400,950" size="100,100">(if: $pw.hashCode() is 28122)[You&#39;ve opened the safe!
+Inside you find some old books, but there is also a torn out page.
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://cdn.pixabay.com/photo/2017/09/22/11/50/book-2775291_960_720.jpg&quot;&gt;
 [[Look at page|os1]]
@@ -180,21 +178,18 @@ Bunch of old books, but there is also a torn out page.
 [[Go back|FPSafe]]
 ]</tw-passagedata><tw-passagedata pid="17" name="os1" tags="" position="500,1100" size="100,100">It&#39;s an old black and white photo.   There&#39;s no caption - wonder what it is? (Clue)
 (display: &quot;cl2&quot;)</tw-passagedata><tw-passagedata pid="18" name="Go to Aunt Olivia&#39;s room" tags="" position="25,650" size="100,100">(if: $blanket is 0)[You need to bring a blanket to come in this room.]
-(else:)[
-You are inside Aunt Olivia&#39;s room.
+(else:)[You are inside Aunt Olivia&#39;s room.
 
 The room is empty and cold.
 The TV is on.  Looks like someone has been binge watching.
 ]</tw-passagedata><tw-passagedata pid="19" name="Go to Aunt Nancy&#39;s room" tags="" position="200,650" size="100,100">(if: $beer is 0)[You need to bring a drink to come in this room.]
-(else:)[
-You are inside Aunt Nancy&#39;s room.
+(else:)[You are inside Aunt Nancy&#39;s room.
 
 There is a newpaper flyer on the desk.
 
 [[Read flyer]]
 ]</tw-passagedata><tw-passagedata pid="20" name="Go to Uncle Laurie&#39;s room" tags="" position="900,650" size="100,100">(if: $found_instructions is 0)[You can&#39;t come in until you find the instructions in the basement!]
-(else:)[
-You are inside ULP&#39;s room and you can already see he is planning next year&#39;s Holiday Game!
+(else:)[You are inside ULP&#39;s room and it seems he is planning next year&#39;s Holiday Game!
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://cdn.pixabay.com/photo/2016/03/27/23/11/post-it-notes-1284667_960_720.jpg&quot;&gt;
 
@@ -231,7 +226,8 @@ You are inside ULP&#39;s room and you can already see he is planning next year&#
 
 You entered password &quot;(print: $pw)&quot;
 
-[[Open safe|OpenSafe3]]</tw-passagedata><tw-passagedata pid="23" name="OpenSafe3" tags="" position="875,950" size="100,100">(if: $pw.hashCode() is 780823)[You&#39;ve opened the safe!
+[[Open safe|OpenSafe3]]
+[[Get out|Go upstairs]]</tw-passagedata><tw-passagedata pid="23" name="OpenSafe3" tags="" position="875,950" size="100,100">(if: $pw.hashCode() is 780823)[You&#39;ve opened the safe!
 Just a bunch of architecture drawings. One picture is of interest.
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://cdn.pixabay.com/photo/2020/04/25/09/28/blueprint-5090067_960_720.jpg&quot;&gt;
@@ -257,14 +253,15 @@ Just a bunch of architecture drawings. One picture is of interest.
 ]
 [[Back to hallway|Go east wing]]</tw-passagedata><tw-passagedata pid="28" name="Go to recreation room" tags="" position="2000,500" size="100,100">You are in the recreation room.
 There is a large screen TV and a high-end audio/video system.
-(if: $remote is 0)[Unfortunately the gadgets are too fancy and you don&#39;t know how to turn the system on.]
-(else:)[
-With the remote you can now enjoy some entertainment.
+(if: $remote is 0)[Unfortunately the gadgets are too fancy and you don&#39;t know how to turn the equipment on.]
+(else:)[With the remote you can now enjoy some entertainment.
 [[Play karaoke]]
 [[Play VHS]]
-[[Play DVD]]
-[[Turn on TV]]]
+[[Play DVD]]]
 
+There are some board games:
+(link: &quot;Codenames&quot;)[(goto-url: &#39;https://codenames.game/&#39;)]
+(link: &quot;Scattegories&quot;)[(goto-url: &#39;https://swellgarfo.com/scattergories/&#39;)]
 [[Go to hallway|Go west wing]]</tw-passagedata><tw-passagedata pid="29" name="Go to the library" tags="" position="1800,500" size="100,100">You are in the library.
 
 There are some photo albums:
@@ -404,7 +401,7 @@ Enter &#96;https://lpoon.me/2020holidaygame/ + [your answer here]&#96;
 (type your answer in lowercase, without spaces)
 
 Good luck!
-ULP</tw-passagedata><tw-passagedata pid="53" name="Open fridge" tags="" position="2825,670" size="100,100">This fridge is stocked to the brim.
+ULP</tw-passagedata><tw-passagedata pid="53" name="Open fridge" tags="" position="2825,675" size="100,100">This fridge is stocked to the brim.
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/49203305_2035644579859221_7073475927199449088_o.jpg?_nc_cat=108&amp;ccb=2&amp;_nc_sid=9267fe&amp;_nc_ohc=mqVYzAVfy_cAX_lZfnU&amp;_nc_oc=AQmGwM72djnoBITQ1Sipf8a2MmKImVaGxl5MmzXuDF3PMDvJSxEB4SahyBsIaXkT928&amp;_nc_ht=scontent-sjc3-1.xx&amp;oh=87edccd054c8b5ecd47a8f593bd070eb&amp;oe=5FE85662&quot;&gt;
 
@@ -429,11 +426,11 @@ Burrpppp!  That tasted good!</tw-passagedata><tw-passagedata pid="57" name="Look
 (set: $remote to 1)
 (goto: &quot;Go to balcony&quot;)</tw-passagedata><tw-passagedata pid="61" name="Play karaoke" tags="" position="2375,650" size="100,100">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Y7gXdctEUfU&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
 
-(link: &quot;Play karaoke&quot;)[(goto-url: &#39;https://youtu.be/Y7gXdctEUfU&#39;)]</tw-passagedata><tw-passagedata pid="62" name="Play VHS" tags="" position="2525,650" size="100,100">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/4_PhyXBHVhk&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+(link: &quot;Watch on YouTube&quot;)[(goto-url: &#39;https://youtu.be/Y7gXdctEUfU&#39;)]</tw-passagedata><tw-passagedata pid="62" name="Play VHS" tags="" position="2525,650" size="100,100">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/4_PhyXBHVhk&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
 
-(link: &quot;Play tape&quot;)[(goto-url: &#39;https://youtu.be/4_PhyXBHVhk&#39;)]</tw-passagedata><tw-passagedata pid="63" name="Play DVD" tags="" position="2650,650" size="100,100">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/otCpCn0l4Wo&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="64" name="Turn on TV" tags="" position="2225,650" size="100,100">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Dtrgwqei7ww&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+(link: &quot;Watch on YouTube&quot;)[(goto-url: &#39;https://youtu.be/4_PhyXBHVhk&#39;)]</tw-passagedata><tw-passagedata pid="63" name="MTV" tags="" position="2650,650" size="100,100">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/otCpCn0l4Wo&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="64" name="Play DVD" tags="" position="2225,650" size="100,100">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Dtrgwqei7ww&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
 
-(link: &quot;Watch video&quot;)[(goto-url: &#39;https://youtu.be/Dtrgwqei7ww&#39;)]</tw-passagedata><tw-passagedata pid="65" name="Take blanket" tags="" position="3125,675" size="100,100">(alert:&quot;This blanket will keep you warm.&quot;)
+(link: &quot;Watch on YouTube&quot;)[(goto-url: &#39;https://youtu.be/Dtrgwqei7ww&#39;)]</tw-passagedata><tw-passagedata pid="65" name="Take blanket" tags="" position="3125,675" size="100,100">(alert:&quot;This blanket will keep you warm.&quot;)
 (set: $blanket to 1)
 (goto: &quot;Go to living room&quot;)</tw-passagedata></tw-storydata>
 
