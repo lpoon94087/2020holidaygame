@@ -47,7 +47,7 @@ String.prototype.code2 = function() {
 String.prototype.code3 = function() {
 	return atob("S2IzUUc3UC5qcGc=");
 };
-</script><tw-passagedata pid="1" name="Start" tags="" position="525,200" size="100,100">Welcome to our play mansion!
+</script><tw-passagedata pid="1" name="Start" tags="" position="675,200" size="100,100">Welcome to our play mansion!
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://cdn.pixabay.com/photo/2017/07/03/21/35/house-2469067_960_720.jpg&quot;&gt;
 [[Let&#39;s go inside|Main Foyer]]
@@ -55,7 +55,8 @@ String.prototype.code3 = function() {
 (set: $found_instructions to 0)
 (set: $beer to 0)
 (set: $remote to 0)
-(set: $blanket to 0)</tw-passagedata><tw-passagedata pid="2" name="Main Foyer" tags="" position="525,350" size="100,100">&lt;style&gt; img {
+(set: $blanket to 0)
+(set: $flashlight to 0)</tw-passagedata><tw-passagedata pid="2" name="Main Foyer" tags="" position="675,350" size="100,100">&lt;style&gt; img {
   max-width:100%;
   max-height:100%;
 }
@@ -66,7 +67,7 @@ Wow this house is really big.
 
 [[Go upstairs]]
 [[Go west wing]]
-[[Go east wing]]</tw-passagedata><tw-passagedata pid="3" name="Go upstairs" tags="" position="375,500" size="100,100">You are upstairs.
+[[Go east wing]]</tw-passagedata><tw-passagedata pid="3" name="Go upstairs" tags="" position="525,500" size="100,100">You are upstairs.
 
 There is a large hallway full of rooms.
 
@@ -77,7 +78,7 @@ There is a large hallway full of rooms.
 [[Go to Uncle Sam&#39;s room]]
 [[Go to Uncle Laurie&#39;s room]]
 [[Go to balcony]]
-[[Go downstairs|Main Foyer]]</tw-passagedata><tw-passagedata pid="4" name="Go west wing" tags="" position="1625,325" size="100,100">You are in the west wing.
+[[Go downstairs|Main Foyer]]</tw-passagedata><tw-passagedata pid="4" name="Go west wing" tags="" position="1750,325" size="100,100">You are in the west wing.
 
 There is a hallway that leads to many other large rooms.
 
@@ -85,34 +86,38 @@ There is a hallway that leads to many other large rooms.
 [[Go to the library]]
 [[Go to swimming pool]]
 [[Go to cellar]]
-[[Go to foyer|Main Foyer]]</tw-passagedata><tw-passagedata pid="5" name="Go east wing" tags="" position="2975,295" size="100,100">You are in the east wing.
+[[Go to foyer|Main Foyer]]</tw-passagedata><tw-passagedata pid="5" name="Go east wing" tags="" position="3100,300" size="100,100">You are in the east wing.
 
 There is a hallway that leads to many other large rooms.
 
 [[Go to kitchen]]
 [[Go to dining room]]
 [[Go to living room]]
-[[Go to foyer|Main Foyer]]</tw-passagedata><tw-passagedata pid="6" name="Go to Aunt Fanny&#39;s room" tags="" position="350,650" size="100,100">You are inside Aunt Fanny&#39;s room.
+[[Go to garage]]
+[[Go to foyer|Main Foyer]]</tw-passagedata><tw-passagedata pid="6" name="Go to Aunt Fanny&#39;s room" tags="" position="500,650" size="100,100">You are inside Aunt Fanny&#39;s room.
 There is a microphone on the bed and a diary on the bedside table.
 
 [[Read diary]]
-[[Open safe|FPSafe]]</tw-passagedata><tw-passagedata pid="7" name="Go to Aunt Margaret&#39;s room" tags="" position="475,650" size="100,100">You are inside Aunt Margaret&#39;s room.
+[[Open safe|FPSafe]]</tw-passagedata><tw-passagedata pid="7" name="Go to Aunt Margaret&#39;s room" tags="" position="625,650" size="100,100">You are inside Aunt Margaret&#39;s room.
+
 There is a note pinned on the bulletin board.
+There is a painting on the wall.
 
 [[Read note]]
-[[Open safe|MPSafe]]</tw-passagedata><tw-passagedata pid="8" name="Go to Uncle Sam&#39;s room" tags="" position="625,650" size="100,100">You are inside Uncle Sam&#39;s room.
+[[Look at painting]]
+[[Open safe|MPSafe]]</tw-passagedata><tw-passagedata pid="8" name="Go to Uncle Sam&#39;s room" tags="" position="775,650" size="100,100">You are inside Uncle Sam&#39;s room.
 
-There is an empty cassette tape liner.
+There is an empty VHS box.
 
-[[Look at cassette liner]]
-[[Open safe|SPSafe]]</tw-passagedata><tw-passagedata pid="9" name="Go to balcony" tags="" position="1150,650" size="100,100">Nice view!
+[[Look at VHS box]]
+[[Open safe|SPSafe]]</tw-passagedata><tw-passagedata pid="9" name="Go to balcony" tags="" position="1275,650" size="100,100">Nice view!
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://cdn.pixabay.com/photo/2017/06/02/13/00/costa-del-sol-2366286_960_720.jpg&quot;&gt;
 
 (if: $remote is 0)[There is a remote control on the table.
 [[Take remote]]
 ]
-[[Go back in|Go upstairs]]</tw-passagedata><tw-passagedata pid="10" name="Read diary" tags="" position="225,800" size="100,100">You probably shouldn&#39;t do this, but hey you got to win this game.
+[[Go back in|Go upstairs]]</tw-passagedata><tw-passagedata pid="10" name="Read diary" tags="" position="375,800" size="100,100">You probably shouldn&#39;t do this, but hey you got to win this game.
 
 Just a bunch of music notes...
 
@@ -134,7 +139,7 @@ Just a bunch of music notes...
  
 🎵🎵🎵🎵🎵🎵 🎵🎵🎵🎵🎵🎵🎵
 🎵🎵🎵🎵🎵 🎵🎵🎵🎵🎵🎵🎵
-🎵🎵🎵🎵🎵🎵🎵 🎵🎵🎵🎵🎵🎵🎵🎵🎵</tw-passagedata><tw-passagedata pid="11" name="FPSafe" tags="" position="375,800" size="100,100">To open the safe, you need to enter the password.
+🎵🎵🎵🎵🎵🎵🎵 🎵🎵🎵🎵🎵🎵🎵🎵🎵</tw-passagedata><tw-passagedata pid="11" name="FPSafe" tags="" position="525,800" size="100,100">To open the safe, you need to enter the password.
 
 (set: $pw to (prompt: &quot;Enter Password:&quot;, &quot;&quot;))
 (display: &quot;s1&quot;)
@@ -143,7 +148,7 @@ Just a bunch of music notes...
 You entered password &quot;(print: $pw)&quot;
 
 [[Open safe|OpenSafe2]]
-[[Get out|Go upstairs]]</tw-passagedata><tw-passagedata pid="12" name="OpenSafe1" tags="" position="650,950" size="100,100">(if: $pw.hashCode() is -1366299605)[You&#39;ve opened the safe!
+[[Get out|Go upstairs]]</tw-passagedata><tw-passagedata pid="12" name="OpenSafe1" tags="" position="800,950" size="100,100">(if: $pw.hashCode() is -1366299605)[You&#39;ve opened the safe!
 There is a camera and some photos.
 One particular photo looks interesting.
 (display: &quot;s1&quot;)
@@ -155,10 +160,10 @@ One particular photo looks interesting.
 
 [[Go back|MPSafe]]
 ]
-</tw-passagedata><tw-passagedata pid="13" name="os2" tags="" position="625,1100" size="100,100">Hmmm, I wonder what place is this? (Clue)
-(display: &quot;cl1&quot;)</tw-passagedata><tw-passagedata pid="14" name="Read note" tags="" position="500,800" size="100,100">Looks like a bunch of numbers:
+</tw-passagedata><tw-passagedata pid="13" name="os2" tags="" position="775,1100" size="100,100">Hmmm, I wonder what place is this? (Clue)
+(display: &quot;cl1&quot;)</tw-passagedata><tw-passagedata pid="14" name="Read note" tags="" position="650,800" size="100,100">Looks like a bunch of numbers:
 
-8 4 5 2 10 7 4 7 9 11 9 4 2 3 1 4 6 4 2 3 3 5 5 4 5 3 7 2 6 4 2 3 8 5 4 7 2 4 4 4 2 7 2 3 7 4 4 2 1 8 &lt;div class=&quot;circle&quot;&gt;10&lt;/div&gt; 1 6 2 4 5 7 12 4 2 3 1 4 6 4 2 3 3 5 5 4 5 3 7 2 6 4 2 3 8 5 4 7 2 4 4 4 2 7 2 3 </tw-passagedata><tw-passagedata pid="15" name="MPSafe" tags="" position="625,800" size="100,100">To open the safe, you need to enter the password.
+8 4 5 2 10 7 4 7 9 11 9 4 2 3 1 4 6 4 2 3 3 5 5 4 5 3 7 2 6 4 2 3 8 5 4 7 2 4 4 4 2 7 2 3 7 4 4 2 1 8 &lt;div class=&quot;circle&quot;&gt;10&lt;/div&gt; 1 6 2 4 5 7 12 4 2 3 1 4 6 4 2 3 3 5 5 4 5 3 7 2 6 4 2 3 8 5 4 7 2 4 4 4 2 7 2 3 </tw-passagedata><tw-passagedata pid="15" name="MPSafe" tags="" position="775,800" size="100,100">To open the safe, you need to enter the password.
 
 (set: $pw to (prompt: &quot;Enter Password:&quot;, &quot;&quot;))
 (display: &quot;s1&quot;)
@@ -167,7 +172,7 @@ One particular photo looks interesting.
 You entered password &quot;(print: $pw)&quot;
 
 [[Open safe|OpenSafe1]]
-[[Get out|Go upstairs]]</tw-passagedata><tw-passagedata pid="16" name="OpenSafe2" tags="" position="400,950" size="100,100">(if: $pw.hashCode() is 28122)[You&#39;ve opened the safe!
+[[Get out|Go upstairs]]</tw-passagedata><tw-passagedata pid="16" name="OpenSafe2" tags="" position="550,950" size="100,100">(if: $pw.hashCode() is 28122)[You&#39;ve opened the safe!
 Inside you find some old books, but there is also a torn out page.
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://cdn.pixabay.com/photo/2017/09/22/11/50/book-2775291_960_720.jpg&quot;&gt;
@@ -176,25 +181,27 @@ Inside you find some old books, but there is also a torn out page.
 (else:)[Sorry, that password is not correct.
 
 [[Go back|FPSafe]]
-]</tw-passagedata><tw-passagedata pid="17" name="os1" tags="" position="500,1100" size="100,100">It&#39;s an old black and white photo.   There&#39;s no caption - wonder what it is? (Clue)
-(display: &quot;cl2&quot;)</tw-passagedata><tw-passagedata pid="18" name="Go to Aunt Olivia&#39;s room" tags="" position="25,650" size="100,100">(if: $blanket is 0)[You need to bring a blanket to come in this room.]
+]</tw-passagedata><tw-passagedata pid="17" name="os1" tags="" position="650,1100" size="100,100">It&#39;s an old black and white photo.   There&#39;s no caption - wonder what it is? (Clue)
+(display: &quot;cl2&quot;)</tw-passagedata><tw-passagedata pid="18" name="Go to Aunt Olivia&#39;s room" tags="" position="150,650" size="100,100">(if: $blanket is 0)[You need to bring a blanket to come in this room.]
 (else:)[You are inside Aunt Olivia&#39;s room.
 
 The room is empty and cold.
 The TV is on.  Looks like someone has been binge watching.
-]</tw-passagedata><tw-passagedata pid="19" name="Go to Aunt Nancy&#39;s room" tags="" position="200,650" size="100,100">(if: $beer is 0)[You need to bring a drink to come in this room.]
+
+[[Look in closet]]
+]</tw-passagedata><tw-passagedata pid="19" name="Go to Aunt Nancy&#39;s room" tags="" position="350,650" size="100,100">(if: $beer is 0)[You need to bring a drink to come in this room.]
 (else:)[You are inside Aunt Nancy&#39;s room.
 
 There is a newpaper flyer on the desk.
 
 [[Read flyer]]
-]</tw-passagedata><tw-passagedata pid="20" name="Go to Uncle Laurie&#39;s room" tags="" position="900,650" size="100,100">(if: $found_instructions is 0)[You can&#39;t come in until you find the instructions in the basement!]
+]</tw-passagedata><tw-passagedata pid="20" name="Go to Uncle Laurie&#39;s room" tags="" position="1050,650" size="100,100">(if: $found_instructions is 0)[You can&#39;t come in until you find the instructions in the basement!]
 (else:)[You are inside ULP&#39;s room and it seems he is planning next year&#39;s Holiday Game!
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://cdn.pixabay.com/photo/2016/03/27/23/11/post-it-notes-1284667_960_720.jpg&quot;&gt;
 
 [[Read postit]]
-]</tw-passagedata><tw-passagedata pid="21" name="Look at cassette liner" tags="" position="750,800" size="100,100">Hmmm, it seems like a bunch on emojis!
+]</tw-passagedata><tw-passagedata pid="21" name="Look at VHS box" tags="" position="900,800" size="100,100">Hmmm, it seems like a bunch on emojis!
 
 😪☝️👁💩👻🦷👻🧵🎩☂️🥠🍢🍗💩
 🍽👻🎱🎷🐍🏃👻🧚‍♀️👑🎩🧢🎱🐍💄🎷
@@ -218,7 +225,7 @@ There is a newpaper flyer on the desk.
 🍽👙🏴‍☠️💄🚰🍽👻🎱
 🍽💄👔☝️🥠🦷💩❤️🍗🥰🔫💣🧨
 🍽💄👔☝️🥠🦷💩🌡🤡🦷🥰🔫💣🧨
-</tw-passagedata><tw-passagedata pid="22" name="SPSafe" tags="" position="875,800" size="100,100">To open the safe, you need to enter the password.
+</tw-passagedata><tw-passagedata pid="22" name="SPSafe" tags="" position="1025,800" size="100,100">To open the safe, you need to enter the password.
 
 (set: $pw to (prompt: &quot;Enter Password:&quot;, &quot;&quot;))
 (display: &quot;s1&quot;)
@@ -227,7 +234,7 @@ There is a newpaper flyer on the desk.
 You entered password &quot;(print: $pw)&quot;
 
 [[Open safe|OpenSafe3]]
-[[Get out|Go upstairs]]</tw-passagedata><tw-passagedata pid="23" name="OpenSafe3" tags="" position="875,950" size="100,100">(if: $pw.hashCode() is 780823)[You&#39;ve opened the safe!
+[[Get out|Go upstairs]]</tw-passagedata><tw-passagedata pid="23" name="OpenSafe3" tags="" position="1025,950" size="100,100">(if: $pw.hashCode() is 780823)[You&#39;ve opened the safe!
 Just a bunch of architecture drawings. One picture is of interest.
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://cdn.pixabay.com/photo/2020/04/25/09/28/blueprint-5090067_960_720.jpg&quot;&gt;
@@ -236,22 +243,23 @@ Just a bunch of architecture drawings. One picture is of interest.
 (else:)[Sorry, that password is not correct.
 
 [[Go back|SPSafe]]
-]</tw-passagedata><tw-passagedata pid="24" name="sp1" tags="" position="875,1100" size="100,100">Hmmm, looks interesting.  But what does it mean? (Clue)
+]</tw-passagedata><tw-passagedata pid="24" name="sp1" tags="" position="1025,1100" size="100,100">Hmmm, looks interesting.  But what does it mean? (Clue)
 
-(display: &quot;cl3&quot;)</tw-passagedata><tw-passagedata pid="25" name="Go to kitchen" tags="" position="2825,520" size="100,100">You are in the kitchen.
+(display: &quot;cl3&quot;)</tw-passagedata><tw-passagedata pid="25" name="Go to kitchen" tags="" position="2950,525" size="100,100">You are in the kitchen.
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2019/4/22/1/HUHH2019-Curb-Appeal_Tarrytown-NY_11.jpg.rend.hgtvcom.616.411.suffix/1555952408224.jpeg&quot;&gt;
 (if: $beer is 1)[You have taken the beer from the fridge.]
 
 [[Open fridge]]
-[[Back to hallway|Go east wing]]</tw-passagedata><tw-passagedata pid="26" name="Go to dining room" tags="" position="2975,525" size="100,100">You are in the dining room.
-
-[[Back to hallway|Go east wing]]</tw-passagedata><tw-passagedata pid="27" name="Go to living room" tags="" position="3125,525" size="100,100">You are in the living room.
+[[Back to hallway|Go east wing]]</tw-passagedata><tw-passagedata pid="26" name="Go to dining room" tags="" position="3100,525" size="100,100">You are in the dining room.
+(display: &quot;s1&quot;)
+&lt;img src=&quot;https://cdn.pixabay.com/photo/2018/01/26/08/15/dining-room-3108037_960_720.jpg&quot;&gt;
+[[Back to hallway|Go east wing]]</tw-passagedata><tw-passagedata pid="27" name="Go to living room" tags="" position="3250,525" size="100,100">You are in the living room.
 
 (if: $blanket is 0)[There is a fleece blanket on the sofa.
 [[Take blanket]]
 ]
-[[Back to hallway|Go east wing]]</tw-passagedata><tw-passagedata pid="28" name="Go to recreation room" tags="" position="2000,500" size="100,100">You are in the recreation room.
+[[Back to hallway|Go east wing]]</tw-passagedata><tw-passagedata pid="28" name="Go to recreation room" tags="" position="2125,500" size="100,100">You are in the recreation room.
 There is a large screen TV and a high-end audio/video system.
 (if: $remote is 0)[Unfortunately the gadgets are too fancy and you don&#39;t know how to turn the equipment on.]
 (else:)[With the remote you can now enjoy some entertainment.
@@ -262,7 +270,7 @@ There is a large screen TV and a high-end audio/video system.
 There are some board games:
 (link: &quot;Codenames&quot;)[(goto-url: &#39;https://codenames.game/&#39;)]
 (link: &quot;Scattegories&quot;)[(goto-url: &#39;https://swellgarfo.com/scattergories/&#39;)]
-[[Go to hallway|Go west wing]]</tw-passagedata><tw-passagedata pid="29" name="Go to the library" tags="" position="1800,500" size="100,100">You are in the library.
+[[Go to hallway|Go west wing]]</tw-passagedata><tw-passagedata pid="29" name="Go to the library" tags="" position="1925,500" size="100,100">You are in the library.
 
 There are some photo albums:
 &lt;a href=&quot;https://www.flickr.com/gp/laurie_poon/ubu13V&quot;&gt;2004 Dominican Republic&lt;/a&gt;
@@ -276,163 +284,180 @@ There are some photo albums:
 [[Look at magazine 2]]
 [[Look at book 1]]
 
-[[Go to hallway|Go west wing]]</tw-passagedata><tw-passagedata pid="30" name="Go to swimming pool" tags="" position="1575,500" size="100,100">You are in the indoor swimming pool.
+[[Go to hallway|Go west wing]]</tw-passagedata><tw-passagedata pid="30" name="Go to swimming pool" tags="" position="1700,500" size="100,100">You are in the indoor swimming pool.
 
 There looks like a coin in the bottom of the pool
 
 [[Dive in to fetch coin]]
-[[Go to hallway|Go west wing]]</tw-passagedata><tw-passagedata pid="31" name="cl1" tags="clue" position="225,1100" size="100,100">&lt;style&gt; img {
+[[Go to hallway|Go west wing]]</tw-passagedata><tw-passagedata pid="31" name="cl1" tags="clue" position="375,1100" size="100,100">&lt;style&gt; img {
   max-width:100%;
   max-height:100%;
 }
 &lt;/style&gt;
-(print: &#39;&lt;img src=&quot;&#39; + $host + $host.code1() + &#39;&quot;&gt;&#39;)</tw-passagedata><tw-passagedata pid="32" name="cl2" tags="clue" position="350,1100" size="100,100">&lt;style&gt; img {
+(print: &#39;&lt;img src=&quot;&#39; + $host + $host.code1() + &#39;&quot;&gt;&#39;)</tw-passagedata><tw-passagedata pid="32" name="cl2" tags="clue" position="500,1100" size="100,100">&lt;style&gt; img {
   max-width:100%;
   max-height:100%;
 }
 &lt;/style&gt;
-(print: &#39;&lt;img src=&quot;&#39; + $host + $host.code2() + &#39;&quot;&gt;&#39;)</tw-passagedata><tw-passagedata pid="33" name="cl3" tags="clue" position="750,1100" size="100,100">&lt;style&gt; img {
+(print: &#39;&lt;img src=&quot;&#39; + $host + $host.code2() + &#39;&quot;&gt;&#39;)</tw-passagedata><tw-passagedata pid="33" name="cl3" tags="clue" position="900,1100" size="100,100">&lt;style&gt; img {
   max-width:100%;
   max-height:100%;
 }
 &lt;/style&gt;
-(print: &#39;&lt;img src=&quot;&#39; + $host + $host.code3() + &#39;&quot;&gt;&#39;)</tw-passagedata><tw-passagedata pid="34" name="Go to cellar" tags="" position="1400,500" size="100,100">You are in the basement and there are literally thousands of bottles of wines!
+(print: &#39;&lt;img src=&quot;&#39; + $host + $host.code3() + &#39;&quot;&gt;&#39;)</tw-passagedata><tw-passagedata pid="34" name="Go to cellar" tags="" position="1525,500" size="100,100">You are in the basement and there are literally thousands of bottles of wines!
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://i.imgur.com/dPymGpp.jpg&quot;&gt;
 [[Go north|cell1]]
 [[Go south|cell2]]
 [[Go east|cell3]]
 [[Go west|cell4]]
-[[Go upstairs|Go west wing]]</tw-passagedata><tw-passagedata pid="35" name="s1" tags="" position="325,350" size="100,100">&lt;style&gt; img { max-width:100%; max-height:100%;}&lt;/style&gt;</tw-passagedata><tw-passagedata pid="36" name="cell1" tags="" position="1300,800" size="100,100">You are in the cellar, but all these passages all look the same...
+[[Go upstairs|Go west wing]]</tw-passagedata><tw-passagedata pid="35" name="s1" tags="" position="475,350" size="100,100">&lt;style&gt; img { max-width:100%; max-height:100%;}&lt;/style&gt;</tw-passagedata><tw-passagedata pid="36" name="cell1" tags="" position="1425,800" size="100,100">You are in the cellar, but all these passages all look the same...
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://i.imgur.com/dPymGpp.jpg&quot;&gt;
 [[Go north|cell6]]
 [[Go south|cell7]]
 [[Go east|cell8]]
-[[Go west|cell9]]</tw-passagedata><tw-passagedata pid="37" name="cell2" tags="" position="1425,800" size="100,100">You are in the cellar, but all these passages all look the same...
+[[Go west|cell9]]</tw-passagedata><tw-passagedata pid="37" name="cell2" tags="" position="1550,800" size="100,100">You are in the cellar, but all these passages all look the same...
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://i.imgur.com/dPymGpp.jpg&quot;&gt;
 [[Go north|cell10]]
 [[Go south|cell11]]
 [[Go east|cell12]]
-[[Go west|cell13]]</tw-passagedata><tw-passagedata pid="38" name="cell3" tags="" position="1550,800" size="100,100">You are in the cellar, but all these passages all look the same...
+[[Go west|cell13]]</tw-passagedata><tw-passagedata pid="38" name="cell3" tags="" position="1675,800" size="100,100">You are in the cellar, but all these passages all look the same...
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://i.imgur.com/dPymGpp.jpg&quot;&gt;
 [[Go north|cell10]]
 [[Go south|cell11]]
 [[Go east|cell12]]
-[[Go west|cell13]]</tw-passagedata><tw-passagedata pid="39" name="cell4" tags="" position="1675,800" size="100,100">You are in the cellar, but all these passages all look the same...
+[[Go west|cell13]]</tw-passagedata><tw-passagedata pid="39" name="cell4" tags="" position="1800,800" size="100,100">You are in the cellar, but all these passages all look the same...
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://i.imgur.com/dPymGpp.jpg&quot;&gt;
 [[Go north|cell10]]
 [[Go south|cell11]]
 [[Go east|cell12]]
-[[Go west|cell13]]</tw-passagedata><tw-passagedata pid="40" name="cell6" tags="" position="1300,950" size="100,100">You are in the cellar, but all these passages all look the same...
+[[Go west|cell13]]</tw-passagedata><tw-passagedata pid="40" name="cell6" tags="" position="1425,950" size="100,100">You are in the cellar, but all these passages all look the same...
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://i.imgur.com/dPymGpp.jpg&quot;&gt;
 [[Go north|cell10]]
 [[Go south|cell11]]
 [[Go east|cell12]]
-[[Go west|cell13]]</tw-passagedata><tw-passagedata pid="41" name="cell7" tags="" position="1425,950" size="100,100">You are in the cellar, but all these passages all look the same...
+[[Go west|cell13]]</tw-passagedata><tw-passagedata pid="41" name="cell7" tags="" position="1550,950" size="100,100">You are in the cellar, but all these passages all look the same...
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://i.imgur.com/dPymGpp.jpg&quot;&gt;
 [[Go north|cell10]]
 [[Go south|cell11]]
 [[Go east|cell12]]
-[[Go west|cell13]]</tw-passagedata><tw-passagedata pid="42" name="cell8" tags="" position="1550,950" size="100,100">You are in the cellar, but all these passages all look the same...
+[[Go west|cell13]]</tw-passagedata><tw-passagedata pid="42" name="cell8" tags="" position="1675,950" size="100,100">You are in the cellar, but all these passages all look the same...
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://i.imgur.com/dPymGpp.jpg&quot;&gt;
 [[Go north|cell10]]
 [[Go south|cell11]]
 [[Go east|cell12]]
-[[Go west|cell5]]</tw-passagedata><tw-passagedata pid="43" name="cell9" tags="" position="1675,950" size="100,100">You are in the cellar, but all these passages all look the same...
+[[Go west|cell5]]</tw-passagedata><tw-passagedata pid="43" name="cell9" tags="" position="1800,950" size="100,100">You are in the cellar, but all these passages all look the same...
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://i.imgur.com/dPymGpp.jpg&quot;&gt;
 [[Go north|cell10]]
 [[Go south|cell11]]
 [[Go east|cell12]]
-[[Go west|cell1]]</tw-passagedata><tw-passagedata pid="44" name="cell10" tags="" position="1300,1100" size="100,100">You are in the cellar, but all these passages all look the same...
+[[Go west|cell1]]</tw-passagedata><tw-passagedata pid="44" name="cell10" tags="" position="1425,1100" size="100,100">You are in the cellar, but all these passages all look the same...
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://i.imgur.com/dPymGpp.jpg&quot;&gt;
 [[Go north|cell1]]
 [[Go south|cell2]]
 [[Go east|cell3]]
-[[Go west|cell4]]</tw-passagedata><tw-passagedata pid="45" name="cell11" tags="" position="1425,1100" size="100,100">You are in the cellar, but all these passages all look the same...
+[[Go west|cell4]]</tw-passagedata><tw-passagedata pid="45" name="cell11" tags="" position="1550,1100" size="100,100">You are in the cellar, but all these passages all look the same...
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://i.imgur.com/dPymGpp.jpg&quot;&gt;
 [[Go north|cell1]]
 [[Go south|cell2]]
 [[Go east|cell8]]
-[[Go west|cell4]]</tw-passagedata><tw-passagedata pid="46" name="cell12" tags="" position="1550,1100" size="100,100">You are in the cellar, but all these passages all look the same...
+[[Go west|cell4]]</tw-passagedata><tw-passagedata pid="46" name="cell12" tags="" position="1675,1100" size="100,100">You are in the cellar, but all these passages all look the same...
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://i.imgur.com/dPymGpp.jpg&quot;&gt;
 [[Go north|cell1]]
 [[Go south|cell2]]
 [[Go east|cell3]]
-[[Go west|cell4]]</tw-passagedata><tw-passagedata pid="47" name="cell13" tags="" position="1675,1100" size="100,100">You are in the cellar, but all these passages all look the same...
+[[Go west|cell4]]</tw-passagedata><tw-passagedata pid="47" name="cell13" tags="" position="1800,1100" size="100,100">You are in the cellar, but all these passages all look the same...
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://i.imgur.com/dPymGpp.jpg&quot;&gt;
 [[Go north|cell1]]
 [[Go south|cell2]]
 [[Go east|cell8]]
-[[Go west|cell4]]</tw-passagedata><tw-passagedata pid="48" name="cell5" tags="" position="1800,800" size="100,100">You are in the cellar, but all these passages all look the same...
+[[Go west|cell4]]</tw-passagedata><tw-passagedata pid="48" name="cell5" tags="" position="1925,800" size="100,100">You are in the cellar, but all these passages all look the same...
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://i.imgur.com/dPymGpp.jpg&quot;&gt;
 [[Go north|cell10]]
 [[Go south|cell15]]
 [[Go east|cell12]]
-[[Go west|cell5]]</tw-passagedata><tw-passagedata pid="49" name="cell15" tags="" position="1800,950" size="100,100">You are in the cellar, but looks like there is a note behind one of the bottle.
+[[Go west|cell5]]</tw-passagedata><tw-passagedata pid="49" name="cell15" tags="" position="1925,950" size="100,100">You are in the cellar, but looks like there is a note behind one of the bottle.
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://i.imgur.com/dPymGpp.jpg&quot;&gt;
 [[Read note|Read instructions]]
-[[Go upstairs|Go west wing]]</tw-passagedata><tw-passagedata pid="50" name="Read instructions" tags="" position="1800,1100" size="100,100">(set: $found_instructions to 1)
-Congratulations, you have found the instructions of the game!
+[[Go upstairs|Go west wing]]</tw-passagedata><tw-passagedata pid="50" name="Read instructions" tags="" position="1925,1100" size="100,100">(if: $flashlight is 0)[It&#39;s too dark to make out the words...
+[[Back|cell15]]
+]
+(else:)[Congratulations, you have found the instructions of the game!
 
 There are three clues in the sibling&#39;s rooms you must first find.
 
 When you have the three clues, they will form the answer.
 
-[[Got it!|cell15]]</tw-passagedata><tw-passagedata pid="51" name="Read flyer" tags="" position="100,800" size="100,100">(font:&quot;Courier&quot;)[Great NEWS!
+[[Got it!|cell15]]
+(set: $found_instructions to 1)
+]</tw-passagedata><tw-passagedata pid="51" name="Read flyer" tags="" position="250,800" size="100,100">(font:&quot;Courier&quot;)[Great NEWS!
 
 Chardonnay is on sale!  Two for $5.99!
-]</tw-passagedata><tw-passagedata pid="52" name="Read postit" tags="" position="1025,800" size="100,100">Once you&#39;ve solved the answer with the three clues, go to the following address.
+]</tw-passagedata><tw-passagedata pid="52" name="Read postit" tags="" position="1150,800" size="100,100">Once you&#39;ve solved the answer with the three clues, go to the following address.
 
 Enter &#96;https://lpoon.me/ + [your answer here]&#96;
 (type your answer in lowercase, without spaces)
 
 Good luck!
-ULP</tw-passagedata><tw-passagedata pid="53" name="Open fridge" tags="" position="2825,675" size="100,100">This fridge is stocked to the brim.
+ULP</tw-passagedata><tw-passagedata pid="53" name="Open fridge" tags="" position="2950,675" size="100,100">This fridge is stocked to the brim.
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/49203305_2035644579859221_7073475927199449088_o.jpg?_nc_cat=108&amp;ccb=2&amp;_nc_sid=9267fe&amp;_nc_ohc=mqVYzAVfy_cAX_lZfnU&amp;_nc_oc=AQmGwM72djnoBITQ1Sipf8a2MmKImVaGxl5MmzXuDF3PMDvJSxEB4SahyBsIaXkT928&amp;_nc_ht=scontent-sjc3-1.xx&amp;oh=87edccd054c8b5ecd47a8f593bd070eb&amp;oe=5FE85662&quot;&gt;
 
 [[Take milk]]
 (link-reveal-goto: &quot;Take beer&quot;, &quot;Go to kitchen&quot;)[(set:$beer to 1)]
 [[Take sandwich]]
-[[Close fridge|Go to kitchen]]</tw-passagedata><tw-passagedata pid="54" name="Dive in to fetch coin" tags="" position="1675,625" size="100,100">(alert:&quot;Diving was not your strong suit, unfortunately you swallowed too much chlorine water and you need to be taken to hospital.
+[[Close fridge|Go to kitchen]]</tw-passagedata><tw-passagedata pid="54" name="Dive in to fetch coin" tags="" position="1800,625" size="100,100">(alert:&quot;Diving was not your strong suit, unfortunately you swallowed too much chlorine water and you need to be taken to hospital.
 
 What kind of game you think this is, fetching coin underwater?&quot;)
 
-(goto: &quot;Start&quot;)</tw-passagedata><tw-passagedata pid="55" name="Take milk" tags="" position="2725,825" size="100,100">(alert:&quot;You take one whiff of the milk to check it has expired and ...
+(goto: &quot;Start&quot;)</tw-passagedata><tw-passagedata pid="55" name="Take milk" tags="" position="2875,825" size="100,100">(alert:&quot;You take one whiff of the milk to check it has expired and ...
 Yikes!  It smells so bad you got knocked out unconscious.
 
 Too bad you have to go to the hospital!&quot;)
 
-(goto: &quot;Start&quot;)</tw-passagedata><tw-passagedata pid="56" name="Take sandwich" tags="" position="2900,820" size="100,100">You couldn&#39;t resist to eat the club sandwich.
+(goto: &quot;Start&quot;)</tw-passagedata><tw-passagedata pid="56" name="Take sandwich" tags="" position="3025,825" size="100,100">You couldn&#39;t resist to eat the club sandwich.
 
-Burrpppp!  That tasted good!</tw-passagedata><tw-passagedata pid="57" name="Look at book 1" tags="" position="2200,800" size="100,100">(display: &quot;s1&quot;)
-&lt;img src=&quot;https://prodimage.images-bn.com/pimages/9788026836131_p0_v1_s550x406.jpg&quot;&gt;</tw-passagedata><tw-passagedata pid="58" name="Look at magazine 1" tags="" position="1950,800" size="100,100">(display: &quot;s1&quot;)
-&lt;img src=&quot;https://img.timeinc.net/time/magazine/archive/covers/1978/1101780116_400.jpg&quot;&gt;</tw-passagedata><tw-passagedata pid="59" name="Look at magazine 2" tags="" position="2075,800" size="100,100">(display: &quot;s1&quot;)
-&lt;img src=&quot;https://img.thriftbooks.com/api/images/l/3a1a9245efba08a4d73895c9c12d2716edcbb723.jpg&quot;&gt;</tw-passagedata><tw-passagedata pid="60" name="Take remote" tags="" position="1150,800" size="100,100">(alert:&quot;This seems like a universal remote.  Cool!&quot;)
+Burrpppp!  That tasted good!</tw-passagedata><tw-passagedata pid="57" name="Look at book 1" tags="" position="2325,800" size="100,100">(display: &quot;s1&quot;)
+&lt;img src=&quot;https://prodimage.images-bn.com/pimages/9788026836131_p0_v1_s550x406.jpg&quot;&gt;</tw-passagedata><tw-passagedata pid="58" name="Look at magazine 1" tags="" position="2075,800" size="100,100">(display: &quot;s1&quot;)
+&lt;img src=&quot;https://img.timeinc.net/time/magazine/archive/covers/1978/1101780116_400.jpg&quot;&gt;</tw-passagedata><tw-passagedata pid="59" name="Look at magazine 2" tags="" position="2200,800" size="100,100">(display: &quot;s1&quot;)
+&lt;img src=&quot;https://img.thriftbooks.com/api/images/l/3a1a9245efba08a4d73895c9c12d2716edcbb723.jpg&quot;&gt;</tw-passagedata><tw-passagedata pid="60" name="Take remote" tags="" position="1275,800" size="100,100">(alert:&quot;This seems like a universal remote.  Cool!&quot;)
 (set: $remote to 1)
-(goto: &quot;Go to balcony&quot;)</tw-passagedata><tw-passagedata pid="61" name="Play karaoke" tags="" position="2375,650" size="100,100">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Y7gXdctEUfU&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+(goto: &quot;Go to balcony&quot;)</tw-passagedata><tw-passagedata pid="61" name="Play karaoke" tags="" position="2500,650" size="100,100">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Y7gXdctEUfU&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
 
-(link: &quot;Watch on YouTube&quot;)[(goto-url: &#39;https://youtu.be/Y7gXdctEUfU&#39;)]</tw-passagedata><tw-passagedata pid="62" name="Play VHS" tags="" position="2525,650" size="100,100">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/4_PhyXBHVhk&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+(link: &quot;Watch on YouTube&quot;)[(goto-url: &#39;https://youtu.be/Y7gXdctEUfU&#39;)]</tw-passagedata><tw-passagedata pid="62" name="Play VHS" tags="" position="2650,650" size="100,100">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/4_PhyXBHVhk&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
 
-(link: &quot;Watch on YouTube&quot;)[(goto-url: &#39;https://youtu.be/4_PhyXBHVhk&#39;)]</tw-passagedata><tw-passagedata pid="63" name="MTV" tags="" position="2650,650" size="100,100">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/otCpCn0l4Wo&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="64" name="Play DVD" tags="" position="2225,650" size="100,100">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Dtrgwqei7ww&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+(link: &quot;Watch on YouTube&quot;)[(goto-url: &#39;https://youtu.be/4_PhyXBHVhk&#39;)]</tw-passagedata><tw-passagedata pid="63" name="MTV" tags="" position="2775,650" size="100,100">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/otCpCn0l4Wo&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="64" name="Play DVD" tags="" position="2350,650" size="100,100">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Dtrgwqei7ww&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
 
-(link: &quot;Watch on YouTube&quot;)[(goto-url: &#39;https://youtu.be/Dtrgwqei7ww&#39;)]</tw-passagedata><tw-passagedata pid="65" name="Take blanket" tags="" position="3125,675" size="100,100">(alert:&quot;This blanket will keep you warm.&quot;)
+(link: &quot;Watch on YouTube&quot;)[(goto-url: &#39;https://youtu.be/Dtrgwqei7ww&#39;)]</tw-passagedata><tw-passagedata pid="65" name="Take blanket" tags="" position="3250,675" size="100,100">(alert:&quot;This blanket will keep you warm.&quot;)
 (set: $blanket to 1)
-(goto: &quot;Go to living room&quot;)</tw-passagedata></tw-storydata>
+(goto: &quot;Go to living room&quot;)</tw-passagedata><tw-passagedata pid="66" name="Look at painting" tags="" position="675,950" size="100,100">(display: &quot;s1&quot;)
+&lt;img src=&quot;https://cdn.pixabay.com/photo/2014/12/16/22/41/couple-570903_960_720.jpg&quot;&gt;</tw-passagedata><tw-passagedata pid="67" name="Go to garage" tags="" position="3400,525" size="100,100">You are in the garage.
+
+It&#39;s empty, but there are lots of tools here.
+
+(if: $flashlight is 0)[There is a flashlight by the switch.
+[[Take flashlight]]
+]
+[[Back to hallway|Go east wing]]</tw-passagedata><tw-passagedata pid="68" name="Take flashlight" tags="" position="3400,675" size="100,100">(alert:&quot;This is a 10000 lumens security flashlight.&quot;)
+(set: $flashlight to 1)
+(goto: &quot;Go to garage&quot;)</tw-passagedata><tw-passagedata pid="69" name="Look in closet" tags="" position="125,800" size="100,100">It&#39;s just a dark closet filled with shoes and clothes.
+(if: $flashlight is 1)[However, in the corner you noticed a piece of paper.
+[[Read paper|OTPaper]]
+]</tw-passagedata><tw-passagedata pid="70" name="OTPaper" tags="" position="125,950" size="100,100">Listen to the lyrics!</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
