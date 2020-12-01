@@ -47,7 +47,7 @@ String.prototype.code2 = function() {
 String.prototype.code3 = function() {
 	return atob("S2IzUUc3UC5qcGc=");
 };
-</script><tw-passagedata pid="1" name="Start" tags="" position="675,200" size="100,100">Welcome to our play mansion!
+</script><tw-passagedata pid="1" name="Start" tags="" position="675,200" size="100,100">Welcome to our (either: &quot;play&quot;, &quot;holiday&quot;, &quot;exciting&quot;) mansion!
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://cdn.pixabay.com/photo/2017/07/03/21/35/house-2469067_960_720.jpg&quot;&gt;
 [[Let&#39;s go inside|Main Foyer]]
@@ -254,6 +254,9 @@ Just a bunch of architecture drawings. One picture is of interest.
 [[Back to hallway|Go east wing]]</tw-passagedata><tw-passagedata pid="26" name="Go to dining room" tags="" position="3100,525" size="100,100">You are in the dining room.
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://cdn.pixabay.com/photo/2018/01/26/08/15/dining-room-3108037_960_720.jpg&quot;&gt;
+On the wall is a fancy digital screen.
+
+[[Look at screen]]
 [[Back to hallway|Go east wing]]</tw-passagedata><tw-passagedata pid="27" name="Go to living room" tags="" position="3250,525" size="100,100">You are in the living room.
 
 (if: $blanket is 0)[There is a fleece blanket on the sofa.
@@ -304,7 +307,7 @@ There looks like a coin in the bottom of the pool
   max-height:100%;
 }
 &lt;/style&gt;
-(print: &#39;&lt;img src=&quot;&#39; + $host + $host.code3() + &#39;&quot;&gt;&#39;)</tw-passagedata><tw-passagedata pid="34" name="Go to cellar" tags="" position="1525,500" size="100,100">You are in the basement and there are literally thousands of bottles of wines!
+(print: &#39;&lt;img src=&quot;&#39; + $host + $host.code3() + &#39;&quot;&gt;&#39;)</tw-passagedata><tw-passagedata pid="34" name="Go to cellar" tags="" position="1525,500" size="100,100">You are in the basement and there are wall-to-wall thousands of bottles of wines!
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://i.imgur.com/dPymGpp.jpg&quot;&gt;
 [[Go north|cell1]]
@@ -447,17 +450,40 @@ Burrpppp!  That tasted good!</tw-passagedata><tw-passagedata pid="57" name="Look
 (goto: &quot;Go to living room&quot;)</tw-passagedata><tw-passagedata pid="66" name="Look at painting" tags="" position="675,950" size="100,100">(display: &quot;s1&quot;)
 &lt;img src=&quot;https://cdn.pixabay.com/photo/2014/12/16/22/41/couple-570903_960_720.jpg&quot;&gt;</tw-passagedata><tw-passagedata pid="67" name="Go to garage" tags="" position="3400,525" size="100,100">You are in the garage.
 
-It&#39;s empty, but there are lots of tools here.
+There&#39;s not much here, except some tools here and there.
 
 (if: $flashlight is 0)[There is a flashlight by the switch.
-[[Take flashlight]]
-]
+[[Take flashlight]]]
+(else:)[There is a crawlspace door in the corner.
+[[Enter crawlspace|cell7]]]
+
 [[Back to hallway|Go east wing]]</tw-passagedata><tw-passagedata pid="68" name="Take flashlight" tags="" position="3400,675" size="100,100">(alert:&quot;This is a 10000 lumens security flashlight.&quot;)
 (set: $flashlight to 1)
 (goto: &quot;Go to garage&quot;)</tw-passagedata><tw-passagedata pid="69" name="Look in closet" tags="" position="125,800" size="100,100">It&#39;s just a dark closet filled with shoes and clothes.
 (if: $flashlight is 1)[However, in the corner you noticed a piece of paper.
 [[Read paper|OTPaper]]
-]</tw-passagedata><tw-passagedata pid="70" name="OTPaper" tags="" position="125,950" size="100,100">Listen to the lyrics!</tw-passagedata></tw-storydata>
+]</tw-passagedata><tw-passagedata pid="70" name="OTPaper" tags="" position="125,950" size="100,100">Listen to the lyrics!</tw-passagedata><tw-passagedata pid="71" name="drs1" tags="" position="3175,825" size="100,100">Screen1
+
+</tw-passagedata><tw-passagedata pid="72" name="Look at screen" tags="" position="3100,675" size="100,100">{(display: &quot;s1&quot;)
+(set: $r to (random: 1,5))
+(if: $r is 1)[
+&lt;img src=
+&quot;https://static01.nyt.com/images/2018/03/02/arts/design/02picasso-print/01picasso1-superJumbo.jpg&quot;&gt;
+]
+(else-if: $r is 2)[
+&lt;img src=
+&quot;https://i.etsystatic.com/20179468/r/il/9e1863/1944647299/il_1140xN.1944647299_tjd2.jpg&quot;&gt;]
+(else-if: $r is 3)[
+&lt;img src=
+&quot;https://static01.nyt.com/images/2010/09/26/nyregion/26ARTSCO1/26ARTSCO1-articleLarge.jpg?quality=75&amp;auto=webp&amp;disable=upscale&quot;&gt;]
+(else-if: $r is 4)[
+&lt;img src=
+&quot;https://doagahehoc242.cloudfront.net/uploads/artists/2123/f4802b22_schermata-2020-02-06-alle-143622.png&quot;&gt;]
+(else:)[
+&lt;img src=
+https://i.etsystatic.com/13040894/r/il/601ce9/2027371273/il_794xN.2027371273_ru1k.jpg&gt;
+]}
+[[Done|Go to dining room]]</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
