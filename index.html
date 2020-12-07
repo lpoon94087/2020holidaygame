@@ -618,7 +618,7 @@ It seems you have taken all the treasures that you can carry.
 &quot;Fee fie fo fum, I smell the blood of an Englishman&quot;.
 Looks like the owner of the castle is coming.  You better run away - fast!(set: $allTreasuresFound to 1)]
 (else:)[
-However, you can only carry so much, and these are the items you want:
+However, you can only carry so much, and these are the items can take:
 {(if: $treasure1 is 0)[
   [[flying carpet]]&lt;BR&gt;
 ]}{(if: $treasure2 is 0)[
@@ -720,7 +720,7 @@ You now have the enchanted goose that lays golden eggs!
 (set: $axe to 1)
 (goto: &quot;Go to garage&quot;)</tw-passagedata><tw-passagedata pid="101" name="jelly bean dispenser" tags="" position="2525,800" size="100,100">(display: &quot;s1&quot;)
 &lt;img src=&quot;https://i.imgur.com/djtFw9T.jpg&quot;&gt;
-(if: $coin is 1)[You put in your coin and out comes a jelly bean!  How cheap, just one!   You smell the bean and decided not to eat it.(set: $bean to 1)]
+(if: ($coin is 1) and ($bean is 0))[You put in your coin and out comes a jelly bean!  How cheap, just one!   You smell the bean and decided not to eat it.(set: $bean to 1)]
 [[Go to recreation room]]</tw-passagedata><tw-passagedata pid="102" name="Go to greenhouse" tags="" position="2500,1000" size="100,100">(if: (history:) contains &quot;Go to greenhouse&quot; )[You are inside the greenhouse.]
 (else:)[This looks like a recent addition to the house.
 
@@ -773,7 +773,7 @@ You cannot pass through walls of the same color consecutively.
 You entered &quot;(print: $pw)&quot;
 
 [[Is it right?|Answer2]]
-[[Go back|magic harp]]</tw-passagedata><tw-passagedata pid="108" name="Answer2" tags="" position="2175,1975" size="100,100">(if: $pw.hashCode() is -352926515)[That is correct!
+[[Go back|magic harp]]</tw-passagedata><tw-passagedata pid="108" name="Answer2" tags="" position="2175,1975" size="100,100">(if: $pw.hashCode2() is -352926515)[That is correct!
 Congrats! Did you know this harp can play music by itself?  Its sound is so pleasing, it can put any listener to sleep.
 {(display: &quot;s1&quot;)
 &lt;img src=&quot;https://i.imgur.com/S1t5PfW.jpg&quot;&gt;
