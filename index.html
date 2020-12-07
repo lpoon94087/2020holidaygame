@@ -35,7 +35,21 @@ String.prototype.hashCode = function() {
 	}
 	return hash;
 };
-
+String.prototype.hashCode2 = function() {
+	var hash = 0, i, chr, len;
+	if (this.length == 0)
+		return hash;
+	var newstr = this.toUpperCase();;
+	for (i = 0, len = newstr.length; i < len; i++) {
+		chr   = newstr.charCodeAt(i);
+		if (chr == ':'.charCodeAt(0)) {
+			continue;
+		}
+		hash  = ((hash << 5) - hash) + chr;
+		hash |= 0; // Convert to 32bit integer.
+	}
+	return hash;
+};
 String.prototype.code1 = function() {
 	return atob("N2p0RHFJSi5wbmc=");
 };
@@ -47,16 +61,26 @@ String.prototype.code2 = function() {
 String.prototype.code3 = function() {
 	return atob("S2IzUUc3UC5qcGc=");
 };
-</script><tw-passagedata pid="1" name="Start" tags="" position="675,200" size="100,100">Welcome to our (either: &quot;play&quot;, &quot;holiday&quot;, &quot;exciting&quot;) mansion!
+</script><tw-passagedata pid="1" name="Start" tags="" position="675,200" size="100,100">Welcome to our (either: &quot;play&quot;, &quot;holiday&quot;, &quot;exciting&quot;) mansion (bonus edition)!
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://cdn.pixabay.com/photo/2017/07/03/21/35/house-2469067_960_720.jpg&quot;&gt;
 [[Let&#39;s go inside|Main Foyer]]
 (set: $host to &quot;https://i.imgur.com/&quot;)
+{
 (set: $found_instructions to 0)
 (set: $beer to 0)
 (set: $remote to 0)
 (set: $blanket to 0)
-(set: $flashlight to 0)</tw-passagedata><tw-passagedata pid="2" name="Main Foyer" tags="" position="675,350" size="100,100">&lt;style&gt; img {
+(set: $flashlight to 0)
+(set: $allTreasuresFound to 0)
+(set: $axe to 0)
+(set: $food to 0)
+(set: $coin to 0)
+(set: $beans to 0)
+(set: $water to 0)
+(set: $stalkgrowth to 0)
+(set: $castleq to 0)
+}</tw-passagedata><tw-passagedata pid="2" name="Main Foyer" tags="" position="675,350" size="100,100">&lt;style&gt; img {
   max-width:100%;
   max-height:100%;
 }
@@ -86,6 +110,7 @@ There is a hallway that leads to many other large rooms.
 [[Go to the library]]
 [[Go to swimming pool]]
 [[Go to cellar]]
+[[Go to greenhouse]]
 [[Go to foyer|Main Foyer]]</tw-passagedata><tw-passagedata pid="5" name="Go east wing" tags="" position="3100,300" size="100,100">You are in the east wing.
 
 There is a hallway that leads to many other large rooms.
@@ -245,19 +270,19 @@ Just a bunch of architecture drawings. One picture is of interest.
 [[Go back|SPSafe]]
 ]</tw-passagedata><tw-passagedata pid="24" name="sp1" tags="" position="1025,1100" size="100,100">Hmmm, looks interesting.  But what does it mean? (Clue)
 
-(display: &quot;cl3&quot;)</tw-passagedata><tw-passagedata pid="25" name="Go to kitchen" tags="" position="2950,525" size="100,100">You are in the kitchen.
+(display: &quot;cl3&quot;)</tw-passagedata><tw-passagedata pid="25" name="Go to kitchen" tags="" position="2950,500" size="100,100">You are in the kitchen.
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2019/4/22/1/HUHH2019-Curb-Appeal_Tarrytown-NY_11.jpg.rend.hgtvcom.616.411.suffix/1555952408224.jpeg&quot;&gt;
 (if: $beer is 1)[You have taken the beer from the fridge.]
 
 [[Open fridge]]
-[[Back to hallway|Go east wing]]</tw-passagedata><tw-passagedata pid="26" name="Go to dining room" tags="" position="3100,525" size="100,100">You are in the dining room.
+[[Back to hallway|Go east wing]]</tw-passagedata><tw-passagedata pid="26" name="Go to dining room" tags="" position="3100,500" size="100,100">You are in the dining room.
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://cdn.pixabay.com/photo/2018/01/26/08/15/dining-room-3108037_960_720.jpg&quot;&gt;
 On the wall is a fancy digital screen.
 
 [[Look at screen]]
-[[Back to hallway|Go east wing]]</tw-passagedata><tw-passagedata pid="27" name="Go to living room" tags="" position="3250,525" size="100,100">You are in the living room.
+[[Back to hallway|Go east wing]]</tw-passagedata><tw-passagedata pid="27" name="Go to living room" tags="" position="3250,500" size="100,100">You are in the living room.
 
 (if: $blanket is 0)[There is a fleece blanket on the sofa.
 [[Take blanket]]
@@ -273,7 +298,11 @@ There is a large screen TV and a high-end audio/video system.
 There are some board games:
 (link: &quot;Codenames&quot;)[(goto-url: &#39;https://codenames.game/&#39;)]
 (link: &quot;Scattegories&quot;)[(goto-url: &#39;https://swellgarfo.com/scattergories/&#39;)]
-[[Go to hallway|Go west wing]]</tw-passagedata><tw-passagedata pid="29" name="Go to the library" tags="" position="1925,500" size="100,100">You are in the library.
+
+There is an old [[jelly bean dispenser]] in the corner.
+
+[[Go to hallway|Go west wing]]
+</tw-passagedata><tw-passagedata pid="29" name="Go to the library" tags="" position="1925,500" size="100,100">You are in the library.
 
 There are some photo albums:
 &lt;a href=&quot;https://www.flickr.com/gp/laurie_poon/ubu13V&quot;&gt;2004 Dominican Republic&lt;/a&gt;
@@ -289,9 +318,9 @@ There are some photo albums:
 
 [[Go to hallway|Go west wing]]</tw-passagedata><tw-passagedata pid="30" name="Go to swimming pool" tags="" position="1700,500" size="100,100">You are in the indoor swimming pool.
 
-There looks like a coin in the bottom of the pool
+(if: $coin is 0)[There looks like a coin in the bottom of the pool.
 
-[[Dive in to fetch coin]]
+[[Dive in to fetch coin]]]
 [[Go to hallway|Go west wing]]</tw-passagedata><tw-passagedata pid="31" name="cl1" tags="clue" position="375,1100" size="100,100">&lt;style&gt; img {
   max-width:100%;
   max-height:100%;
@@ -416,25 +445,36 @@ Enter &#96;https://lpoon.me/ + [your answer here]&#96;
 (type your answer in lowercase, without spaces)
 
 Good luck!
-ULP</tw-passagedata><tw-passagedata pid="53" name="Open fridge" tags="" position="2950,675" size="100,100">This fridge is stocked to the brim.
+ULP</tw-passagedata><tw-passagedata pid="53" name="Open fridge" tags="" position="2950,650" size="100,100">This fridge is stocked to the brim.
 (display: &quot;s1&quot;)
 &lt;img src=&quot;https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/49203305_2035644579859221_7073475927199449088_o.jpg?_nc_cat=108&amp;ccb=2&amp;_nc_sid=9267fe&amp;_nc_ohc=mqVYzAVfy_cAX_lZfnU&amp;_nc_oc=AQmGwM72djnoBITQ1Sipf8a2MmKImVaGxl5MmzXuDF3PMDvJSxEB4SahyBsIaXkT928&amp;_nc_ht=scontent-sjc3-1.xx&amp;oh=87edccd054c8b5ecd47a8f593bd070eb&amp;oe=5FE85662&quot;&gt;
 
 [[Take milk]]
 (link-reveal-goto: &quot;Take beer&quot;, &quot;Go to kitchen&quot;)[(set:$beer to 1)]
+(link-reveal-goto: &quot;Take water&quot;, &quot;Go to kitchen&quot;)[(set:$water to 1)]
 [[Take sandwich]]
-[[Close fridge|Go to kitchen]]</tw-passagedata><tw-passagedata pid="54" name="Dive in to fetch coin" tags="" position="1800,625" size="100,100">(alert:&quot;Diving was not your strong suit, unfortunately you swallowed too much chlorine water and you need to be taken to hospital.
+[[Close fridge|Go to kitchen]]</tw-passagedata><tw-passagedata pid="54" name="Dive in to fetch coin" tags="" position="1800,625" size="100,100">(set: $r to (random: 1,3))
+(if: $r is 1)[
+(alert:&quot;Diving was not your strong suit, unfortunately you swallowed too much chlorine water and you need to be taken to hospital.
 
 What kind of game you think this is, fetching coin underwater?&quot;)
 
-(goto: &quot;Start&quot;)</tw-passagedata><tw-passagedata pid="55" name="Take milk" tags="" position="2875,825" size="100,100">(alert:&quot;You take one whiff of the milk to check it has expired and ...
+(goto: &quot;Start&quot;)
+]
+(else:)[
+You&#39;ve held your breathe long enough to pick up the coin!
+(set: $coin to 1)
+[[Get out of water|Go to swimming pool]]
+]</tw-passagedata><tw-passagedata pid="55" name="Take milk" tags="" position="2875,800" size="100,100">(alert:&quot;You take one whiff of the milk to check it has expired and ...
 Yikes!  It smells so bad you got knocked out unconscious.
 
 Too bad you have to go to the hospital!&quot;)
 
-(goto: &quot;Start&quot;)</tw-passagedata><tw-passagedata pid="56" name="Take sandwich" tags="" position="3025,825" size="100,100">You couldn&#39;t resist to eat the club sandwich.
+(goto: &quot;Start&quot;)</tw-passagedata><tw-passagedata pid="56" name="Take sandwich" tags="" position="3025,800" size="100,100">You couldn&#39;t resist to eat the club sandwich.
 
-Burrpppp!  That tasted good!</tw-passagedata><tw-passagedata pid="57" name="Look at book 1" tags="" position="2325,800" size="100,100">(display: &quot;s1&quot;)
+Burrpppp!  That tasted good!
+(set: $food to 1)
+[[Go to kitchen]]</tw-passagedata><tw-passagedata pid="57" name="Look at book 1" tags="" position="2325,800" size="100,100">(display: &quot;s1&quot;)
 &lt;img src=&quot;https://prodimage.images-bn.com/pimages/9788026836131_p0_v1_s550x406.jpg&quot;&gt;</tw-passagedata><tw-passagedata pid="58" name="Look at magazine 1" tags="" position="2075,800" size="100,100">(display: &quot;s1&quot;)
 &lt;img src=&quot;https://img.timeinc.net/time/magazine/archive/covers/1978/1101780116_400.jpg&quot;&gt;</tw-passagedata><tw-passagedata pid="59" name="Look at magazine 2" tags="" position="2200,800" size="100,100">(display: &quot;s1&quot;)
 &lt;img src=&quot;https://img.thriftbooks.com/api/images/l/3a1a9245efba08a4d73895c9c12d2716edcbb723.jpg&quot;&gt;</tw-passagedata><tw-passagedata pid="60" name="Take remote" tags="" position="1275,800" size="100,100">(alert:&quot;This seems like a universal remote.  Cool!&quot;)
@@ -445,26 +485,26 @@ Burrpppp!  That tasted good!</tw-passagedata><tw-passagedata pid="57" name="Look
 
 (link: &quot;Watch on YouTube&quot;)[(goto-url: &#39;https://youtu.be/4_PhyXBHVhk&#39;)]</tw-passagedata><tw-passagedata pid="63" name="MTV" tags="" position="2775,650" size="100,100">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/otCpCn0l4Wo&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;</tw-passagedata><tw-passagedata pid="64" name="Play DVD" tags="" position="2350,650" size="100,100">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Dtrgwqei7ww&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
 
-(link: &quot;Watch on YouTube&quot;)[(goto-url: &#39;https://youtu.be/Dtrgwqei7ww&#39;)]</tw-passagedata><tw-passagedata pid="65" name="Take blanket" tags="" position="3250,675" size="100,100">(alert:&quot;This blanket will keep you warm.&quot;)
+(link: &quot;Watch on YouTube&quot;)[(goto-url: &#39;https://youtu.be/Dtrgwqei7ww&#39;)]</tw-passagedata><tw-passagedata pid="65" name="Take blanket" tags="" position="3250,650" size="100,100">(alert:&quot;This blanket will keep you warm.&quot;)
 (set: $blanket to 1)
 (goto: &quot;Go to living room&quot;)</tw-passagedata><tw-passagedata pid="66" name="Look at painting" tags="" position="675,950" size="100,100">(display: &quot;s1&quot;)
-&lt;img src=&quot;https://cdn.pixabay.com/photo/2014/12/16/22/41/couple-570903_960_720.jpg&quot;&gt;</tw-passagedata><tw-passagedata pid="67" name="Go to garage" tags="" position="3400,525" size="100,100">You are in the garage.
+&lt;img src=&quot;https://cdn.pixabay.com/photo/2014/12/16/22/41/couple-570903_960_720.jpg&quot;&gt;</tw-passagedata><tw-passagedata pid="67" name="Go to garage" tags="" position="3400,500" size="100,100">You are in the garage.
 
 There&#39;s not much here, except some tools here and there.
 
+(if: $axe is 0)[There is an axe hung on the wall.
+[[Take axe]]]
 (if: $flashlight is 0)[There is a flashlight by the switch.
 [[Take flashlight]]]
 (else:)[There is a crawlspace door in the corner.
 [[Enter crawlspace|cell7]]]
 
-[[Back to hallway|Go east wing]]</tw-passagedata><tw-passagedata pid="68" name="Take flashlight" tags="" position="3400,675" size="100,100">(alert:&quot;This is a 10000 lumens security flashlight.&quot;)
+[[Back to hallway|Go east wing]]</tw-passagedata><tw-passagedata pid="68" name="Take flashlight" tags="" position="3400,650" size="100,100">(alert:&quot;This is a 10000 lumens security flashlight.&quot;)
 (set: $flashlight to 1)
 (goto: &quot;Go to garage&quot;)</tw-passagedata><tw-passagedata pid="69" name="Look in closet" tags="" position="125,800" size="100,100">It&#39;s just a dark closet filled with shoes and clothes.
 (if: $flashlight is 1)[However, in the corner you noticed a piece of paper.
 [[Read paper|OTPaper]]
-]</tw-passagedata><tw-passagedata pid="70" name="OTPaper" tags="" position="125,950" size="100,100">Listen to the lyrics!</tw-passagedata><tw-passagedata pid="71" name="drs1" tags="" position="3175,825" size="100,100">Screen1
-
-</tw-passagedata><tw-passagedata pid="72" name="Look at screen" tags="" position="3100,675" size="100,100">{(display: &quot;s1&quot;)
+]</tw-passagedata><tw-passagedata pid="70" name="OTPaper" tags="" position="125,950" size="100,100">Listen to the lyrics!</tw-passagedata><tw-passagedata pid="71" name="Look at screen" tags="" position="3100,650" size="100,100">{(display: &quot;s1&quot;)
 (set: $r to (random: 1,5))
 (if: $r is 1)[
 &lt;img src=
@@ -483,7 +523,282 @@ There&#39;s not much here, except some tools here and there.
 &lt;img src=
 https://i.etsystatic.com/13040894/r/il/601ce9/2027371273/il_794xN.2027371273_ru1k.jpg&gt;
 ]}
-[[Done|Go to dining room]]</tw-passagedata></tw-storydata>
+[[Done|Go to dining room]]</tw-passagedata><tw-passagedata pid="72" name="bs10" tags="" position="825,2275" size="100,100">You are up in the sky clinging on a giant beanstalk.
+
+(if: $food is 0)[This climbing is pretty tiring and you are out of energy to continue climbing up.]
+(else:)[
+[[Climb up right stalk|bs21]]
+[[Climb up left stalk|bs20]]
+]
+[[Climb down stalk|bs0]]</tw-passagedata><tw-passagedata pid="73" name="bs11" tags="" position="1150,2275" size="100,100">You are up in the sky clinging on a giant beanstalk.
+
+(if: $food is 0)[This climbing is pretty tiring and you are out of energy to continue climbing up.]
+(else:)[
+[[Climb up right stalk|bs23]]
+[[Climb up left stalk|bs22]]
+]
+[[Climb down stalk|bs0]]</tw-passagedata><tw-passagedata pid="74" name="bs21" tags="" position="900,2075" size="100,100">You are up in the sky clinging on a giant beanstalk.
+
+[[Climb up right stalk|bs32]]
+[[Climb up left stalk|bs30]]
+[[Climb down stalk|bs10]]</tw-passagedata><tw-passagedata pid="75" name="bs20" tags="" position="725,2075" size="100,100">You are up in the sky clinging on a giant beanstalk.
+
+{(if: $allTreasuresFound is 1)[You can hear this giant very angry and is climbing down to reclaim his treasures you stole.]
+}
+[[Climb up right stalk|bs31]]
+[[Climb up left stalk|bs30]]
+[[Climb down stalk|bs10]]</tw-passagedata><tw-passagedata pid="76" name="bs23" tags="" position="1250,2075" size="100,100">You are up in the sky clinging on a giant beanstalk.
+
+[[Climb up stalk|bs33]]
+[[Climb down stalk|bs11]]</tw-passagedata><tw-passagedata pid="77" name="bs22" tags="" position="1075,2075" size="100,100">You are up in the sky clinging on a giant beanstalk.
+
+{(if: $allTreasuresFound is 1)[You can hear the giant coming after you!]
+}
+[[Climb up right stalk|bs33]]
+[[Climb up left stalk|bs31]]
+[[Climb down stalk|bs11]]</tw-passagedata><tw-passagedata pid="78" name="bs0" tags="" position="975,2475" size="100,100">You are up in the sky clinging on a giant beanstalk.
+
+{(if: $allTreasuresFound is 1)[You look up and see the giant is on his way down.]
+}
+[[Climb up right stalk|bs11]]
+[[Climb up left stalk|bs10]]
+[[Climb down|Go to greenhouse]]
+(set: $stalkgrowth to 2)</tw-passagedata><tw-passagedata pid="79" name="bs33" tags="" position="1250,1875" size="100,100">You are up in the sky clinging on a giant beanstalk.
+
+[[Climb down right stalk|bs23]]
+[[Climb down left stalk|bs22]]</tw-passagedata><tw-passagedata pid="80" name="bs32" tags="" position="1075,1875" size="100,100">You are up in the sky clinging on a giant beanstalk.
+
+Unfortunately, this is as high as you can go on this stalk.
+
+[[Climb down stalk|bs21]]</tw-passagedata><tw-passagedata pid="81" name="bs31" tags="" position="900,1875" size="100,100">You are up in the sky clinging on a giant beanstalk.
+
+{(if: $allTreasuresFound is 1)[You are carrying a lot of items, you better go down fast.]
+}
+[[Climb up right stalk|bs41]]
+[[Climb up left stalk|bs40]]
+[[Climb down right stalk|bs22]]
+[[Climb down left stalk|bs33]]</tw-passagedata><tw-passagedata pid="82" name="bs30" tags="" position="725,1875" size="100,100">You are up in the sky clinging on a giant beanstalk.
+
+[[Climb down right stalk|bs21]]
+[[Climb down left stalk|bs20]]</tw-passagedata><tw-passagedata pid="83" name="bs41" tags="" position="1000,1675" size="100,100">You are up in the sky clinging on a giant beanstalk.
+
+You are as high as the clouds at this point.
+{(if: $allTreasuresFound is 1)[You can hear the giant is very angry and is climbing down.]
+}
+[[Climb up stalk|Castle entrance]]
+[[Climb down stalk|bs31]]</tw-passagedata><tw-passagedata pid="84" name="bs40" tags="" position="800,1675" size="100,100">You are up in the sky clinging on a giant beanstalk.
+
+You are as high as the clouds, but unfortunately, this is as high as you can climb on this stalk.
+
+[[Climb down stalk|bs31]]</tw-passagedata><tw-passagedata pid="85" name="Castle entrance" tags="" position="1075,1475" size="100,100">(if: (history:) contains &quot;Castle entrance&quot; )[You are standing in front of a castle with clouds at your feet.]
+(else:)[You are in front of a huge castle in the sky!  How is this even possible?!!!
+
+Magically you are walking on clouds!]
+
+Behind you, you see the tip of the the beanstalk.
+{(display: &quot;s1&quot;)&lt;img src=&quot;https://i.imgur.com/Ny1VVg0.jpg&quot;&gt;
+(if: $allTreasuresFound is 1)[
+You literally hear giant footsteps.  Someone does not like to be without its treasures.&lt;BR&gt;
+]
+(if: $casteq is 0)[
+[[Enter castle|Castle question]]
+](else:)[
+[[Enter castle|Castle]]
+]}
+[[Climb down stalk|bs41]]
+(set: $cq1 to 0)
+(set: $cq2 to 0)
+(set: $cq3 to 0)</tw-passagedata><tw-passagedata pid="86" name="Castle" tags="" position="2175,1475" size="100,100">{(if: (history:) contains &quot;Castle&quot; )[You are inside the castle.]
+(else:)[
+You are inside a large castle where strangely everything seems to be extra large.&lt;BR&gt;
+]}
+You see many wonderful items, lost treasures, things of undescribable beauty and awe!  Gold, diamonds, jewels, trinkets and much more.&lt;BR&gt;
+(if: ($treasure1 is 1) and ($treasure2 is 1) and ($treasure3 is 1))[
+It seems you have taken all the treasures that you can carry.
+&quot;Fee fie fo fum, I smell the blood of an Englishman&quot;.
+Looks like the owner of the castle is coming.  You better run away - fast!(set: $allTreasuresFound to 1)]
+(else:)[
+However, you can only carry so much, and these are the items you want:
+{(if: $treasure1 is 0)[
+  [[flying carpet]]&lt;BR&gt;
+]}{(if: $treasure2 is 0)[
+  [[magic harp]]&lt;BR&gt;
+]}{(if: $treasure3 is 0)[
+  [[enchanted goose]]
+]}
+]
+[[Leave castle|Castle entrance]]</tw-passagedata><tw-passagedata pid="87" name="flying carpet" tags="" position="1975,1700" size="100,100">To take this flying carpet, you must first
+rearrange the following letters to make a phrase:
+ 
+ (font: &quot;Courier&quot;)[S A N D I E S T
+   L I L Y]
+
+[[Answer|prompt1]]
+[[Go back|Castle]]</tw-passagedata><tw-passagedata pid="88" name="Castle question" tags="" position="1575,1475" size="100,100">{(if: ($cq1 is 1) and ($cq2 is 1) and ($cq3 is 1))[Congrats!  You&#39;ve identified all three pictures correctly.  You really seem to know your stuff!&lt;BR&gt;
+(set: $casteq to 1)
+[[Ok|Castle]]
+]}(else:)[To enter the castle, you must first identify three pictures:
+
+1 &lt;img src=&#39;https://i.imgur.com/IMYoHF8.jpg&#39; width=50 height=50&gt;
+2 &lt;img src=&#39;https://i.imgur.com/TnZAqiP.jpg&#39; width=50 height=50&gt;
+3 &lt;img src=&#39;https://i.imgur.com/MvGcOnC.jpg&#39; width=50 height=50&gt;
+
+[[Answer Pic 1|prompt21]]
+[[Answer Pic 2|prompt22]]
+[[Answer Pic 3|prompt23]]
+[[Go back|Castle entrance]]
+]
+</tw-passagedata><tw-passagedata pid="89" name="enchanted goose" tags="" position="2375,1700" size="100,100">To take the goose, you must first identify this title:
+(display: &quot;s1&quot;)
+&lt;img src=&quot;https://i.imgur.com/ctarUlS.jpg&quot;&gt;
+
+[[Answer|prompt3]]
+[[Go back|Castle]]</tw-passagedata><tw-passagedata pid="90" name="prompt1" tags="" position="1975,1850" size="100,100">(set: $pw to (prompt: &quot;Enter answer:&quot;, &quot;&quot;))
+You entered &quot;(print: $pw)&quot;
+
+[[Is it right?|Answer1]]
+[[Go back|flying carpet]]</tw-passagedata><tw-passagedata pid="91" name="Answer1" tags="" position="1975,1975" size="100,100">(if: $pw.hashCode2() is -1293183111)[You&#39;ve answered correct!
+
+Legend has it that this carpet was used by Aladdin himself!
+(display: &quot;s1&quot;)
+&lt;img src=&quot;https://i.imgur.com/1goqtpX.jpg&quot;&gt;
+(set: $treasure1 to 1)
+[[Go back|Castle]]
+]
+(else:)[Sorry, that answer is not correct.
+
+[[Go back|flying carpet]]
+]</tw-passagedata><tw-passagedata pid="92" name="Answer21" tags="" position="1425,1775" size="100,100">(if: $pw.hashCode2() is 1952076710)[That&#39;s correct! Sure looks like the ones in the cellar.
+(set: $cq1 to 1)
+]
+(else:)[Sorry, that answer is not correct.
+]
+[[Go back|Castle question]]
+</tw-passagedata><tw-passagedata pid="93" name="prompt22" tags="" position="1575,1650" size="100,100">&lt;img src=&#39;https://i.imgur.com/TnZAqiP.jpg&#39; width=250 height=250&gt;
+(set: $pw to (prompt: &quot;Enter answer:&quot;, &quot;&quot;))
+You entered &quot;(print: $pw)&quot;
+
+[[Is it right?|Answer22]]
+[[Go back|Castle question]]</tw-passagedata><tw-passagedata pid="94" name="Answer23" tags="" position="1725,1775" size="100,100">(if: $pw.hashCode2() is 76014724)[Yes it is! It does look a little bit like the one you found in the pool.
+(set: $cq3 to 1)
+]
+(else:)[Sorry, that answer is not correct.
+]
+[[Go back|Castle question]]
+</tw-passagedata><tw-passagedata pid="95" name="prompt23" tags="" position="1725,1650" size="100,100">&lt;img src=&#39;https://i.imgur.com/MvGcOnC.jpg&#39; width=250 height=250&gt;
+(set: $pw to (prompt: &quot;Enter answer:&quot;, &quot;&quot;))
+You entered &quot;(print: $pw)&quot;
+
+[[Is it right?|Answer23]]
+[[Go back|Castle question]]</tw-passagedata><tw-passagedata pid="96" name="prompt21" tags="" position="1425,1650" size="100,100">&lt;img src=&#39;https://i.imgur.com/IMYoHF8.jpg&#39; width=250 height=250&gt;
+(set: $pw to (prompt: &quot;Enter answer:&quot;, &quot;&quot;))
+You entered &quot;(print: $pw)&quot;
+
+[[Is it right?|Answer21]]
+[[Go back|Castle question]]</tw-passagedata><tw-passagedata pid="97" name="Answer22" tags="" position="1575,1775" size="100,100">(if: $pw.hashCode2() is 1856013610)[Woohoo! That&#39;s right.  Good thing you remember seeing that on the bed.
+(set: $cq2 to 1)
+]
+(else:)[Sorry, that answer is not correct.
+]
+[[Go back|Castle question]]
+</tw-passagedata><tw-passagedata pid="98" name="prompt3" tags="" position="2375,1850" size="100,100">(set: $pw to (prompt: &quot;Enter answer:&quot;, &quot;&quot;))
+You entered &quot;(print: $pw)&quot;
+
+[[Is it right?|Answer3]]
+[[Go back|enchanted goose]]</tw-passagedata><tw-passagedata pid="99" name="Answer3" tags="" position="2375,1975" size="100,100">(if: $pw.hashCode2() is -1889581670)[That is correct!
+
+You now have the enchanted goose that lays golden eggs!
+(display: &quot;s1&quot;)
+&lt;img src=&quot;https://i.imgur.com/UYHRocf.jpg&quot;&gt;
+(set: $treasure3 to 1)
+[[Go back|Castle]]
+]
+(else:)[Sorry, that answer is not correct.
+
+[[Go back|enchanted goose]]
+]</tw-passagedata><tw-passagedata pid="100" name="Take axe" tags="" position="3525,650" size="100,100">(alert:&quot;This is a top quality Husqvarna axe.&quot;)
+(set: $axe to 1)
+(goto: &quot;Go to garage&quot;)</tw-passagedata><tw-passagedata pid="101" name="jelly bean dispenser" tags="" position="2525,800" size="100,100">(display: &quot;s1&quot;)
+&lt;img src=&quot;https://i.imgur.com/djtFw9T.jpg&quot;&gt;
+(if: $coin is 1)[You put in your coin and out comes a jelly bean!  How cheap, just one!   You smell the bean and decided not to eat it.(set: $bean to 1)]
+[[Go to recreation room]]</tw-passagedata><tw-passagedata pid="102" name="Go to greenhouse" tags="" position="2500,1000" size="100,100">(if: (history:) contains &quot;Go to greenhouse&quot; )[You are inside the greenhouse.]
+(else:)[This looks like a recent addition to the house.
+
+You are inside a greenhouse with glass walls on three sides with a glass roof.]
+{(if: $stalkgrowth is 0)[
+On the ground is freshly fertilized soil, but there is nothing growing.&lt;BR&gt;
+(if: ($planted is 0) and ($bean is 1))[ [[Plant bean]]]
+(if: ($planted is 1) and ($water is 1))[ [[Water soil|water once]]]
+]
+(if: $stalkgrowth is 1)[
+On the ground a beanstalk has grown to a height of about 1 meter.&lt;BR&gt;
+(if: $water is 1)[ [[Water some more|water twice]]]
+]
+(if: $stalkgrowth is 2)[
+On the ground a giant beanstalk extends through the roof and into the sky.&lt;BR&gt;
+[[Climb up|bs0]]
+]
+}
+[[Go to hallway|Go west wing]]
+(if: $allTreasuresFound is 1)[
+(if: $axe is 0)[
+(goto: &quot;Giant came down&quot;)
+]
+(else:)[
+(goto: &quot;Kill giant&quot;)
+]
+]</tw-passagedata><tw-passagedata pid="103" name="Plant bean" tags="" position="2600,1150" size="100,100">(set: $planted to 1)
+You dig a small hole and put the bean into the soil.
+
+[[Ok|Go to greenhouse]]</tw-passagedata><tw-passagedata pid="104" name="water once" tags="" position="2775,1150" size="100,100">{(set: $water to 0)
+(set: $stalkgrowth to 1)
+As you pour the water on the soil, the beanstalk grows instantly in front of your eyes!  This is truly amazing!
+}
+[[Ok|Go to greenhouse]]</tw-passagedata><tw-passagedata pid="105" name="water twice" tags="" position="2925,1150" size="100,100">{(set: $water to 0)
+(set: $stalkgrowth to 2)
+As you pour water the second time, the ground starts shaking and the beanstalk has now become as wide as a tree, growing ever fast toward the sky, breaking through the roof!&lt;BR&gt;&lt;BR&gt;
+You look up as high as the clouds and still cannot see how high the beanstalk has grown.
+}
+
+[[Ok|Go to greenhouse]]</tw-passagedata><tw-passagedata pid="106" name="magic harp" tags="" position="2175,1700" size="100,100">To take the magic harp, you must first solve the following puzzle:
+(display: &quot;s1&quot;)
+&lt;img src=&quot;https://i.imgur.com/hwbPRJb.jpg&quot;&gt;
+
+You can only go through RED or BLUE walls.
+Start at wall A and exit through wall H.
+You cannot pass through walls of the same color consecutively.
+
+[[Answer|prompt2]]
+[[Go back|Castle]]</tw-passagedata><tw-passagedata pid="107" name="prompt2" tags="" position="2175,1850" size="100,100">(set: $pw to (prompt: &quot;Enter answer:&quot;, &quot;&quot;))
+You entered &quot;(print: $pw)&quot;
+
+[[Is it right?|Answer2]]
+[[Go back|magic harp]]</tw-passagedata><tw-passagedata pid="108" name="Answer2" tags="" position="2175,1975" size="100,100">(if: $pw.hashCode() is -352926515)[That is correct!
+Congrats! Did you know this harp can play music by itself?  Its sound is so pleasing, it can put any listener to sleep.
+{(display: &quot;s1&quot;)
+&lt;img src=&quot;https://i.imgur.com/S1t5PfW.jpg&quot;&gt;
+(set: $treasure2 to 1)}
+[[Go back|Castle]]
+]
+(else:)[Sorry, that answer is not correct.
+
+[[Go back|magic harp]]
+]</tw-passagedata><tw-passagedata pid="109" name="Giant came down" tags="" position="2350,1150" size="100,100">(alert: &quot;You are back on the ground in the greenhouse, but the giant was able to catch up to you.
+
+He is very angry and is not pleased you took his treasures.  In his rage of fit, he knocked you unconscious and took his possessions back to his castle.
+
+In hindsight, you&#39;d wished you had something to cut down the beanstalk.&quot;)
+(goto: &quot;Start&quot;)</tw-passagedata><tw-passagedata pid="110" name="Kill giant" tags="" position="2475,1150" size="100,100">(alert: &quot;You are back on the ground in the greenhouse, and you quickly take the axe and chop down the beanstalk.
+
+As the beanstalk fall, you hear an enormous thump as the giant falls to his death!&quot;)
+
+(goto: &quot;The end&quot;)</tw-passagedata><tw-passagedata pid="111" name="The end" tags="" position="2475,1300" size="100,100">Congratulations!
+With the enchanted goose, you have unlimited wealth with its golden eggs.
+With the magic harp, you can always bring peace for your mind and body.
+With the flying carpet, you are off to your next adventure!
+(display: &quot;s1&quot;)
+&lt;img src=&quot;https://cdn.pixabay.com/index/2020/11/30/17-44-10-785_1920x430.jpg&quot; border=1&gt;
+(link: &quot;The end&quot;)[(goto-url: &#39;https://lpoon.me/2020bonusfinish&#39;)]</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
